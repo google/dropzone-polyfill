@@ -1,0 +1,27 @@
+<!doctype html>
+<meta charset="utf-8" />
+<title>dropzone: the link keyword is recognized as an effect</title>
+<script src="../../resources/testharness.js"></script>
+<script src="../../resources/testharnessreport.js"></script>
+<link rel="stylesheet" href="resources/common.css">
+<script src="resources/common.js"></script>
+<script src="../lib/dropzone-polyfill.js"></script>
+
+<div id="source" draggable="true">Drag me</div>
+<div id="target" dropzone="link string:text/plain">Drop here</div>
+<p>Please drag the "Drag me" box and drop it onto the "Drop here" box.</p>
+
+<script>
+'use strict';
+
+promise_test(function() {
+  return testOperation(function(dataTransfer) {
+    dataTransfer.effectAllowed = 'all';
+    dataTransfer.setData('text/plain', 'Hello world!');
+  }).then(function(result) {
+    assert_true(result.drop, 'The drop event should have fired');
+    assert_equals(result.effect, 'link');
+  });
+});
+
+</script>

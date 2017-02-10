@@ -1,0 +1,30 @@
+<!doctype html>
+<meta charset="utf-8" />
+<title>dropzone: DataTransfer contains File not matching any file token, but matching a string token</title>
+<script src="../../resources/testharness.js"></script>
+<script src="../../resources/testharnessreport.js"></script>
+<link rel="stylesheet" href="resources/common.css">
+<script src="resources/common.js"></script>
+<script src="../lib/dropzone-polyfill.js"></script>
+
+<div id="target" dropzone="copy file:text/plain string:text/html">
+  Drop here
+</div>
+<button id="done">Done</button>
+<p>
+  Please download <a download href="resources/nav-pass.html">this file</a>,
+  then drag and drop it into the box above. Aftwards, please click the "Done"
+  button above.
+</p>
+
+<script>
+'use strict';
+
+promise_test(function() {
+  return testOperation().then(function(result) {
+    assert_true(!result.drop, 'The drop event should not have fired');
+    assert_equals(result.effect, 'none', 'No drop effect should be set');
+  });
+});
+
+</script>
