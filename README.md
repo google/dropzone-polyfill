@@ -13,12 +13,12 @@ You do not need this polyfill.
 
 If you're still here, the quickest way to get your site working again is to
 download [lib/dropzone-polyfill.js](lib/dropzone-polyfill.js) and include it in
-your site's JavaScript bundler, then call `DropzonePolyfill.handleDom()` after
+your site's JavaScript bundler, then call `DropzonePolyfill.handleDom(documentOrElement)` after
 your DOM is ready. For example,
 
 ```javascript
 window.addEventListener('load', function() {
-  DropzonePolyfill.handleDom();
+  DropzonePolyfill.handleDom(document);
 }, false);
 ```
 
