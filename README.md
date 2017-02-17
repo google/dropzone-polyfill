@@ -44,7 +44,7 @@ match non-file drags to the `dragzone` value above.
 On the other hand, it is worth noting that `dropzone` / `webkitdropzone` were
 never implemented in Firefox so, if your application relies on these attributes,
 it is already broken in Firefox. Along the same lines, the `webkitdropzone` in
-Chrome was unable to match `file:` tokens against dragged files, until M57.
+Chrome was unable to match `file:` tokens against dragged files, until Chrome 57.
 
 In conclusion, if you wish to accept file drags in a portable manner, you need
 to use the
