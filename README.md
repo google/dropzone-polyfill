@@ -13,12 +13,12 @@ You do not need this polyfill.
 
 If you're still here, the quickest way to get your site working again is to
 download [lib/dropzone-polyfill.js](lib/dropzone-polyfill.js) and include it in
-your site's JavaScript bundler, then call `DropzonePolyfill.handleDom()` after
+your site's JavaScript bundler, then call `DropzonePolyfill.handleDom(documentOrElement)` after
 your DOM is ready. For example,
 
 ```javascript
 window.addEventListener('load', function() {
-  DropzonePolyfill.handleDom();
+  DropzonePolyfill.handleDom(document);
 }, false);
 ```
 
@@ -44,7 +44,7 @@ match non-file drags to the `dragzone` value above.
 On the other hand, it is worth noting that `dropzone` / `webkitdropzone` were
 never implemented in Firefox so, if your application relies on these attributes,
 it is already broken in Firefox. Along the same lines, the `webkitdropzone` in
-Chrome was unable to match `file:` tokens against dragged files, until M57.
+Chrome was unable to match `file:` tokens against dragged files, until Chrome 57.
 
 In conclusion, if you wish to accept file drags in a portable manner, you need
 to use the
